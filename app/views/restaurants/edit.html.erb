@@ -1,0 +1,32 @@
+<%= form_tag "/restaurants/#{@restaurant.id}", :method => 'patch' do %>
+
+  <div>
+    <label for="name">Name:</label>
+    <input size="80" name="name" id="name" value="<%= @restaurant.restaurant_name %>">
+  </div>
+
+  <div>
+    <label for="address">Address:</label>
+    <input size="25" name="address" id="address" value="<%= @restaurant.address %>">
+  </div>
+
+  <div>
+    <label>Rating: </label>
+    <select name="rating" value="<%= @restaurant.rating %>">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+
+  <input type="submit" name="commit" value="Update Restaurant">
+
+<% end %>
+
+
+
+
+
