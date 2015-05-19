@@ -1,24 +1,18 @@
 Restaurant
-  restaurant_name: string
+  name: string
   address: text
   rating: integer
-  cuisine_id: integer
-  neighborhood_id: integer
+  cuisine_id
+  neighborhood_id
   date_visited: string
-  status: integer
   notes: text
 
 Neighborhood
-  neighborhood_name: string
-
-Location
-  neighborhood_id: integer
-  restaurant_id: integer
+  name: string
 
 Cuisine
-  cuisine_id: integer
   description: text
-  cuisine_name: string
+  name: string
 
 
 

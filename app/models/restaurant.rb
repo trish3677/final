@@ -1,8 +1,9 @@
 class Restaurant < ActiveRecord::Base
 
-	# has_many :roles
-	# has_many :actors, :through => :roles
+	belongs_to :cuisine
+	belongs_to :neighborhood
 
-	# belongs_to :director, class_name: 'Director', foreign_key: 'director_id'
+	validates_presence_of :name
+	validates_presence_of :address
 	
 end

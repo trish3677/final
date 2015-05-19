@@ -2,7 +2,7 @@
  class RestaurantsController < ApplicationController
 
   def index
-      @restaurants = Restaurant.order('restaurant_name asc')
+      @restaurants = Restaurant.order('name asc').limit(20)
   end
 
   def show
@@ -19,10 +19,11 @@
 
   def create
     restaurant = Restaurant.new
-    restaurant.restaurant_name = params[:name]
+    restaurant.name = params[:name]
     restaurant.address = params[:address]
     restaurant.rating = params[:rating]
     restaurant.notes = params[:description]
+    restaurant.cuisine_id = params[:cuisine]
     restaurant.save
     redirect_to restaurants_url
   end
@@ -33,10 +34,11 @@
 
   def update
     restaurant = Restaurant.find_by(id: params["id"])
-    restaurant.restaurant_name = params[:name]
+    restaurant.name = params[:name]
     restaurant.address = params[:address]
     restaurant.rating = params[:rating]
     restaurant.notes = params[:description]
+    restaurant.cuisine_id = params[:cuisine]
     restaurant.save
     redirect_to restaurants_url
   end

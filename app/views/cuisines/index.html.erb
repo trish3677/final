@@ -1,0 +1,15 @@
+ <p><%= link_to "Add a New Cuisine", "/cuisines/new" %></p>
+
+ <table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+
+  <% @cuisines.each do |cuisine| %>
+    <tr>
+      <td><%= link_to cuisine.name, cuisine_url(cuisine.id) %></td>
+      <td><%= cuisine.description %></td>
+    <% end %>
+  </table>

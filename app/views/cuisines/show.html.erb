@@ -1,0 +1,24 @@
+<h2><%= @cuisine.name %></h2>
+
+<p>
+	<table class="table table-striped">
+  <tr>
+    <th>Restaurant Name</th>
+    <th>Address</th>
+    <th>Rating</th>
+    <th>Neighborhood</th>
+    <th></th>
+  </tr>
+  
+  <% @cuisine.restaurants.each do |restaurant| %>
+   	 <tr>
+     	 <td><%= link_to restaurant.name, restaurant_url(restaurant.id) %></td>
+     	 <td><%= restaurant.address %></td>
+     	 <td><%= restaurant.rating%></td>
+     	 <td><%= restaurant.neighborhood_id%></td>
+  <%end %>
+
+   </table>
+
+
+

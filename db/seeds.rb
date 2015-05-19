@@ -1,6 +1,14 @@
 Restaurant.delete_all
 
-Restaurant.create(restaurant_name: "Sheffields", address: '3528 N Sheffield Ave, Chicago, IL 60657', rating: 3, cuisine_id: 1, neighborhood_id: 1, date_visited: '1-1-2015', status: 1, notes: 'Great bbq' )
-Restaurant.create(restaurant_name: "Cheesie's", address: '958 W Belmont, Chicago, IL 60657', rating: 2, cuisine_id: 1, neighborhood_id: 1, date_visited: '2-1-2015', status: 1, notes: 'Greasy' )
-Restaurant.create(restaurant_name: "Lucky's Sandwich Company", address: '3472 N Clark St, Chicago, IL 60657', rating: 4, cuisine_id: 1, neighborhood_id: 1, date_visited: '3-1-2015', status: 1, notes: 'Great sandwich' )
+Restaurant.create(name: "Sheffields", address: '3528 N Sheffield Ave, Chicago, IL 60657', rating: 3, date_visited: '1-1-2015', notes: 'Great bbq' )
+Restaurant.create(name: "Cheesie's", address: '958 W Belmont, Chicago, IL 60657', rating: 2, date_visited: '2-1-2015', notes: 'Greasy' )
+Restaurant.create(name: "Lucky's Sandwich Company", address: '3472 N Clark St, Chicago, IL 60657', rating: 4, date_visited: '3-1-2015', notes: 'Great sandwich' )
+Restaurant.create(name: "RoseAngelis", address: '1314 W Wrightwood Ave, Chicago, IL 60614', rating: 4, date_visited: '4-1-2015', notes: 'Get a seat outside' )
+Restaurant.create(name: "Mia Francesca", address: '3311 N Clark St, Chicago, IL 60657', rating: 5, date_visited: '5-1-2015', notes: 'Order the green bean appetizer' )
+Restaurant.create(name: "Cafe El Tapatio", address: '3400 N Ashland Ave, Chicago, IL 60657', rating: 4, date_visited: '3-1-2015', notes: 'Good value' )
 
+Cuisine.create(name: "American", description: 'The United States is a rich and varied blend of peoples, religions, and cultures, and this diversity is reflected in its cuisine. Succeeding waves of immigrants, including those arriving on the United States shores today, have brought new culinary traditions and adapted them to the ingredients, kitchens, and customs they found in their new homeland — ever expanding what is called "American food."' )
+Cuisine.create(name: "French", description: 'In France, there is a distinctive culture of French food that is undeniable. It is accompanied with pride, exclusive ingredients and techniques, a world renowned culinary school and those special regions that are known for one particular kind of food. To not experience the food, both regional and national, is to not truly experience France.' )
+Cuisine.create(name: "Mexican", description: 'Mexican food is popular all around the world. From tacos to enchiladas and nachos, Mexican influences in cooking can be found anywhere. Those native to Mexico pride themselves in using natural, from the earth, local ingredients that generations before them grew up using. The ingredients that they could easily access were the main staples in their cuisine.' )
+Cuisine.create(name: "Italian", description: 'Italian food is bold and satisfying without being heavy. It’s rich and textural and uses a whole palette of flavors. Enjoying Italian cuisine is more experiential, not intellectual. It comes from a more emotional place that’s very evocative.' )
+Cuisine.create(name: "Chinese", description: 'Chinese people value their way of dining very much. There is an old saying still being quoted today ---"Food is the first neccessity of the people." Delicious and nutritious food has been regarded as the basics of ordinary life. ' )
