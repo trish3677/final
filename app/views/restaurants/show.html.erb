@@ -1,12 +1,15 @@
 <h2><%= @restaurant.name %></h2>
 
 <p>
-  <span class="rating">Rated: <%= @restaurant.rating %></span><br>
   <%= @restaurant.address %> <br> 
   <%= @restaurant.cuisine_id %><br> 
-  <%= @restaurant.neighborhood_id %>
+  <%= @restaurant.neighborhood_id %><br> 
+ 
+  <%@reviews.each do |review| %>
+    <br> Rating: <%=review[:rating] %>
+    <br> Review: <%= review[:submitted_review] %> <br>
+  <%end%>
 
 </p>
 
-<p><%= @restaurant.notes %></p>
 

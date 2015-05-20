@@ -4,11 +4,9 @@
   <tr>
     <th>Restaurant Name</th>
     <th>Address</th>
-    <th>Rating</th>
     <th>Cuisine Type</th>
     <th>Neighborhood</th>
     <th>Date Visited</th>
-    <th>Notes</th>
     <th></th>
   </tr>
 
@@ -16,11 +14,9 @@
     <tr>
       <td><%= link_to restaurant.name, restaurant_url(restaurant.id) %></td>
       <td><%= restaurant.address %></td>
-      <td><%= restaurant.rating%></td>
       <td><%= restaurant.cuisine_id%></td>
       <td><%= restaurant.neighborhood_id%></td>
       <td><%= restaurant.date_visited%></td>
-      <td><%= restaurant.notes%></td>
       <td><%= link_to "Edit...", "/restaurants/#{restaurant.id}/edit" %></td>
       <td><%= link_to "Delete", "/restaurants/#{restaurant.id}", :method => 'delete' %></td>
     <% end %>

@@ -20,19 +20,32 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "neighborhoods", force: :cascade do |t|
     t.string "name"
+    t.text   "description"
   end
 
   create_table "restaurants", force: :cascade do |t|
     t.string  "name"
     t.text    "address"
-    t.integer "rating"
     t.integer "cuisine_id"
     t.integer "neighborhood_id"
     t.string  "date_visited"
-    t.text    "notes"
   end
 
   add_index "restaurants", ["cuisine_id"], name: "index_restaurants_on_cuisine_id"
   add_index "restaurants", ["neighborhood_id"], name: "index_restaurants_on_neighborhood_id"
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "restaurant_id"
+    t.integer "user_id"
+    t.text    "submitted_review"
+    t.integer "rating"
+  end
+
+  add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+  end
 
 end

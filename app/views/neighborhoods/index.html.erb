@@ -1,0 +1,13 @@
+ <table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+
+  <% @neighborhoods.each do |neighborhood| %>
+    <tr>
+      <td><%= link_to neighborhood.name, neighborhood_url(neighborhood.id) %></td>
+      <td><%= neighborhood.description %></td>
+    <% end %>
+  </table>
