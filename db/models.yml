@@ -1,7 +1,6 @@
 Restaurant
   name: string
   address: text
-  cuisine_id
   neighborhood_id
   date_visited: string
 
@@ -14,7 +13,8 @@ Cuisine
   name: string
 
 User
-  name: string
+  email: string
+  password: string
 
 Review
   restaurant_id
@@ -22,3 +22,6 @@ Review
   submitted_review: text
   rating: integer
 
+Type
+  restaurant_id: integer
+  cuisine_id: integer

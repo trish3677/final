@@ -1,10 +1,16 @@
+ <% if cookies["restaurant_id"].present? %>
+  <h3>Recently Viewed Restaurant</h3>
+    <%= Restaurant.find_by(id: cookies["restaurant_id"]).name %> 
+<% end %>
+
  <p><%= link_to "Add a New Restaurant", "/restaurants/new" %></p>
+
+ <p><%= link_to "Create a user", "/users/new" %></p>
 
  <table class="table table-striped">
   <tr>
     <th>Restaurant Name</th>
     <th>Address</th>
-    <th>Cuisine Type</th>
     <th>Neighborhood</th>
     <th>Date Visited</th>
     <th></th>
@@ -14,8 +20,7 @@
     <tr>
       <td><%= link_to restaurant.name, restaurant_url(restaurant.id) %></td>
       <td><%= restaurant.address %></td>
-      <td><%= restaurant.cuisine_id%></td>
-      <td><%= restaurant.neighborhood_id%></td>
+      <td><%= Neighborhood.find_by(id: restaurant.neighborhood_id).name%></td>
       <td><%= restaurant.date_visited%></td>
       <td><%= link_to "Edit...", "/restaurants/#{restaurant.id}/edit" %></td>
       <td><%= link_to "Delete", "/restaurants/#{restaurant.id}", :method => 'delete' %></td>

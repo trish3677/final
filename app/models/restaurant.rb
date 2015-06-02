@@ -1,6 +1,8 @@
 class Restaurant < ActiveRecord::Base
 
-	belongs_to :cuisine
+	has_many :types
+	has_many :cuisines, :through => :types
+
 	belongs_to :neighborhood
 	belongs_to :review
 

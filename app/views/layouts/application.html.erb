@@ -17,6 +17,15 @@
       <small><%= link_to "Restaurants", '/restaurants' %></small>
       <small><%= link_to "Neighborhoods", '/neighborhoods' %></small>
       <small><%= link_to "Cuisine", '/cuisines' %></small>
+      <small><%= link_to "Users", '/users' %></small>
+
+      <% if cookies["user_id"].present? %>
+        <small>Howdy, <%= User.find_by(id: cookies["user_id"]).email %></small>
+        <small><%= link_to "Sign Out", '/logout', :method => 'delete' %></small>
+      <% else %>
+          <small><%= link_to "Sign Up", '/signup' %></small>
+          <small><%= link_to "Sign In", '/login' %></small>
+    <% end %>
     </h1>
 
     <% if notice.present? %>

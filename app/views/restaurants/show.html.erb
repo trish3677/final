@@ -1,9 +1,14 @@
+<h2><%= cookies["viewed"] %></h2>
 <h2><%= @restaurant.name %></h2>
 
 <p>
   <%= @restaurant.address %> <br> 
-  <%= @restaurant.cuisine_id %><br> 
-  <%= @restaurant.neighborhood_id %><br> 
+  <ul>
+  <% @restaurant.cuisines.each do |cuisine| %>
+    <li><%= link_to cuisine.name, cuisine_url(cuisine.id)%></li>
+  <% end %>
+</ul>
+   Neighborhood: <%= link_to Neighborhood.find_by(id: @restaurant.neighborhood_id).name, neighborhood_url(@restaurant.neighborhood_id)%><br> 
  
   <%@reviews.each do |review| %>
     <br> Rating: <%=review[:rating] %>

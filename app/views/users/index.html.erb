@@ -1,0 +1,12 @@
+
+ <table class="table table-striped">
+  <tr>
+    <th>Email</th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.email, user_url(user.id) %></td>
+    <% end %>
+  </table>

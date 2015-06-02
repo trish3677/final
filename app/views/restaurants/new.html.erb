@@ -7,21 +7,11 @@
 <%= form_tag "/restaurants" do %>
   <p><label>Name:</label> <input name="name" size="30"></p>
   <p><label>Address:</label> <input name="address" size="80"></p>
-  <div>
-    <label>Rating: </label>
-    <select name="rating">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div>
-    <label>Cuisine Type: </label>
-    <select name="cuisine">
+   <p><label>Neighborhood:</label> <input name="neighborhood_id" size="80"></p>
+     <div>
+     <label>Cuisine Type: </label>
       <% Cuisine.all.each do |cuisine| %>
-        <option value = "<%=cuisine.id %>" ><%= cuisine.name %></option>
+        <input type ="checkbox" name="cuisine_ids[]" value = "<%=cuisine.id %>" ><%= cuisine.name %></>
       <%end%>
     </select>
   </div>
