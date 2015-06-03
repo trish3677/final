@@ -41,7 +41,6 @@ Type.create(restaurant_id: Restaurant.find_by(name:"RoseAngelis").id, cuisine_id
 Type.create(restaurant_id: Restaurant.find_by(name:"Mia Francesca").id, cuisine_id: Cuisine.find_by(name:"Italian").id)
 Type.create(restaurant_id: Restaurant.find_by(name:"Cafe El Tapatio").id, cuisine_id: Cuisine.find_by(name:"Mexican").id)
 
-User.create(email: "pcorvino@example.com", password: "1111")
-User.create(email: "dgleason@example.com", password: "2222")
+User.create(email: 'jeff@example.com', password: 'hockey')
 
 puts "Seeded succesfully."

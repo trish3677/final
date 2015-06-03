@@ -15,6 +15,7 @@ Cuisine
 User
   email: string
   password: string
+  password_digest: string
 
 Review
   restaurant_id
