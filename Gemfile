@@ -51,3 +51,4 @@ end
 
  gem 'bcrypt'
 
+gem 'rails_12factor'
