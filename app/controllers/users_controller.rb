@@ -14,7 +14,12 @@ class UsersController < ApplicationController
     end
   end
 
-   def index
+  def index
       @users = User.order('email asc').limit(20)
   end
+
+ def show
+  @user = User.find_by(id: params["id"])
+ end
+
 end
