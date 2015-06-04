@@ -2,7 +2,6 @@ Restaurant
   name: string
   address: text
   neighborhood_id
-  date_visited: string
 
 Neighborhood
   description: text

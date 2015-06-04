@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "name"
     t.text    "address"
     t.integer "neighborhood_id"
-    t.string  "date_visited"
   end
 
   add_index "restaurants", ["neighborhood_id"], name: "index_restaurants_on_neighborhood_id"
