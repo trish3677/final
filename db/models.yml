@@ -22,6 +22,10 @@ Review
   submitted_review: text
   rating: integer
 
-Type
+Genre
   restaurant_id: integer
   cuisine_id: integer
+
+Visit
+  user_id: integer
+  restaurant_id: integer

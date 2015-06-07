@@ -1,7 +1,7 @@
 class Cuisine < ActiveRecord::Base
 
-	 has_many :types
-	 has_many :restaurants, :through => :types
+	 has_many :genres
+	 has_many :restaurants, :through => :genres
 	 
 
 	 validates_presence_of :name

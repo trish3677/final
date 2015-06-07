@@ -30,10 +30,10 @@
 
     newtypes = params[:cuisine_ids]
     newtypes.each do |newtype|
-      typ = Type.new
-      typ.cuisine_id = newtype
-      typ.restaurant_id = restaurant.id
-      typ.save
+      genre = Genre.new
+      genre.cuisine_id = newtype
+      genre.restaurant_id = restaurant.id
+      genre.save
     end
 
     redirect_to restaurants_url
@@ -41,6 +41,7 @@
 
   def edit
     @restaurant = Restaurant.find_by(id: params["id"])
+    
   end
 
   def update
@@ -49,19 +50,19 @@
     restaurant.address = params[:address]
     restaurant.save
 
-    type = Type.where(restaurant_id: params["id"])
-    type.each do |t|
-      t.delete
+    genre = Genre.where(restaurant_id: params["id"])
+    genre.each do |g|
+      g.delete
     end
 
     # raise params.inspect
-    newtypes = params[:cuisine_ids]
+    newgenres = params[:cuisine_ids]
     # raise newtypes.inspect
-    newtypes.each do |newtype|
-      typ = Type.new
-      typ.cuisine_id = newtype
-      typ.restaurant_id = params[:id]
-      typ.save
+    newgenres.each do |newgenre|
+      genr = Genre.new
+      genr.cuisine_id = newgenre
+      genr.restaurant_id = params[:id]
+      genr.save
     end
 
     redirect_to restaurants_url

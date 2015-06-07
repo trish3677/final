@@ -7,7 +7,7 @@
 
   def show
       @cuisine = Cuisine.find_by(id: params["id"])
-      @types = Type.where(cuisine_id: params["id"])
+      @types = Genre.where(cuisine_id: params["id"])
 
      if @cuisine == nil
        redirect_to cuisine_url, notice: "Cuisine not found."

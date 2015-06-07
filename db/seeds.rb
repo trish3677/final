@@ -33,14 +33,20 @@ Review.create(restaurant_id: Restaurant.find_by(name:"Mia Francesca").id, submit
 Review.create(restaurant_id: Restaurant.find_by(name:"Mia Francesca").id, submitted_review: "Good spot for before or after a Cubs game", rating: 4)
 Review.create(restaurant_id: Restaurant.find_by(name:"Cafe El Tapatio").id, submitted_review: "Good value", rating: 3)
 
-Type.create(restaurant_id: Restaurant.find_by(name:"Sheffields").id, cuisine_id: Cuisine.find_by(name:"American").id)
-Type.create(restaurant_id: Restaurant.find_by(name:"Cheesie's").id, cuisine_id: Cuisine.find_by(name:"American").id)
-Type.create(restaurant_id: Restaurant.find_by(name:"Cheesie's").id, cuisine_id: Cuisine.find_by(name:"Fast Food").id)
-Type.create(restaurant_id: Restaurant.find_by(name:"Lucky's Sandwich Company").id, cuisine_id: Cuisine.find_by(name:"American").id)
-Type.create(restaurant_id: Restaurant.find_by(name:"RoseAngelis").id, cuisine_id: Cuisine.find_by(name:"Italian").id)
-Type.create(restaurant_id: Restaurant.find_by(name:"Mia Francesca").id, cuisine_id: Cuisine.find_by(name:"Italian").id)
-Type.create(restaurant_id: Restaurant.find_by(name:"Cafe El Tapatio").id, cuisine_id: Cuisine.find_by(name:"Mexican").id)
+Genre.create(restaurant_id: Restaurant.find_by(name:"Sheffields").id, cuisine_id: Cuisine.find_by(name:"American").id)
+Genre.create(restaurant_id: Restaurant.find_by(name:"Cheesie's").id, cuisine_id: Cuisine.find_by(name:"American").id)
+Genre.create(restaurant_id: Restaurant.find_by(name:"Cheesie's").id, cuisine_id: Cuisine.find_by(name:"Fast Food").id)
+Genre.create(restaurant_id: Restaurant.find_by(name:"Lucky's Sandwich Company").id, cuisine_id: Cuisine.find_by(name:"American").id)
+Genre.create(restaurant_id: Restaurant.find_by(name:"RoseAngelis").id, cuisine_id: Cuisine.find_by(name:"Italian").id)
+Genre.create(restaurant_id: Restaurant.find_by(name:"Mia Francesca").id, cuisine_id: Cuisine.find_by(name:"Italian").id)
+Genre.create(restaurant_id: Restaurant.find_by(name:"Cafe El Tapatio").id, cuisine_id: Cuisine.find_by(name:"Mexican").id)
 
 User.create(email: 'jeff@example.com', password: 'hockey')
+User.create(email: 'pgleason@example.com', password: '1111')
+User.create(email: 'dgleason@example.com', password: '2222')
+
+Visit.create(user_id: User.find_by(email: 'jeff@example.com').id, restaurant_id: Restaurant.find_by(name:"Sheffields").id)
+Visit.create(user_id: User.find_by(email: 'dgleason@example.com').id, restaurant_id: Restaurant.find_by(name:"Sheffields").id)
+Visit.create(user_id: User.find_by(email: 'jeff@example.com').id, restaurant_id: Restaurant.find_by(name:"Mia Francesca").id)
 
 puts "Seeded succesfully."

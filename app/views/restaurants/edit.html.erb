@@ -2,7 +2,7 @@
 
   <div>
     <label for="name">Name:</label>
-    <input size="80" name="name" id="name" value="<%= @restaurant.name %>">
+     <input size="80" name="name" id="name" value=" <%=@restaurant.name %>" required>
   </div>
 
   <div>
@@ -13,11 +13,20 @@
     <div>
     <label>Cuisine Type: </label>
       <% Cuisine.all.each do |cuisine| %>
-        <input type ="checkbox" name="cuisine_ids[]" value = "<%=cuisine.id %>" ><%= cuisine.name %></>
+      <%counter = 0 %>
+        <% @restaurant.cuisines.each do|temp| %>
+          <%if cuisine == temp %>
+            <input type ="checkbox" name="cuisine_ids[]" value = "<%= cuisine.id%>" checked ><%= cuisine.name %> </>
+            <% counter= counter +1 %>
+          <%end%>
+        <%end%>
+        <%if counter == 0 %>
+          <input type ="checkbox" name="cuisine_ids[]" value = "<%=cuisine.id %>" ><%= cuisine.name %></>
+        <%end%>
+        <% counter = 0 %>
       <%end%>
     </select>
   </div>
-
 
   <input type="submit" name="commit" value="Update Restaurant">
 

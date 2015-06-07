@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "name"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.integer "restaurant_id"
+    t.integer "cuisine_id"
+  end
+
+  add_index "genres", ["cuisine_id"], name: "index_genres_on_cuisine_id"
+  add_index "genres", ["restaurant_id"], name: "index_genres_on_restaurant_id"
+
   create_table "neighborhoods", force: :cascade do |t|
     t.string "name"
     t.text   "description"
@@ -41,18 +49,18 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id"
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
-  create_table "types", force: :cascade do |t|
-    t.integer "restaurant_id"
-    t.integer "cuisine_id"
-  end
-
-  add_index "types", ["cuisine_id"], name: "index_types_on_cuisine_id"
-  add_index "types", ["restaurant_id"], name: "index_types_on_restaurant_id"
-
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
     t.string "password_digest"
   end
+
+  create_table "visits", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "restaurant_id"
+  end
+
+  add_index "visits", ["restaurant_id"], name: "index_visits_on_restaurant_id"
+  add_index "visits", ["user_id"], name: "index_visits_on_user_id"
 
 end

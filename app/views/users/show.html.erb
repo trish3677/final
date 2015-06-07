@@ -4,6 +4,9 @@
   <strong>Email address on file:</strong> <%= @user.email %>
 </p>
 
-<p>
-  <strong>Password:</strong> <%= @user.password %>
-</p>
+</ul>
+Restaurant/s user <%=@user.email%> has visited: 
+  <% @user.restaurants.each do |restaurant| %>
+    <li><%= link_to restaurant.name, restaurant_url(restaurant.id)%></li>
+  <% end %>
+</ul>
