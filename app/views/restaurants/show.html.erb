@@ -9,11 +9,6 @@
   <% end %>
 </ul>
    Neighborhood: <%= link_to Neighborhood.find_by(id: @restaurant.neighborhood_id).name, neighborhood_url(@restaurant.neighborhood_id)%><br> 
- 
-  <%@reviews.each do |review| %>
-    <br> Rating: <%=review[:rating] %>
-    <br> Review: <%= review[:submitted_review] %> <br>
-  <%end%>
 
 </p>
 

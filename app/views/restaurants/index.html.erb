@@ -1,6 +1,7 @@
- <% if cookies["restaurant_id"].present? %>
+  <%if cookies["restaurant_id"].present? %>
   <h4>Recently Viewed Restaurant:</h4>
-    <%= Restaurant.find_by(id: cookies["restaurant_id"]).name %><br>
+  <% restaurant = Restaurant.find_by(id: cookies["restaurant_id"]) %>
+    <%= link_to restaurant.name, restaurant_url(restaurant.id) %><br>
 <% end %>
 
 <% if current_user %>
@@ -12,11 +13,11 @@
     <th>Restaurant Name</th>
     <th>Address</th>
     <th>Neighborhood</th>
-     <%if current_user %>
-     <th>Edit</th>
-     <th>Delete</th>
-     <th>Visited</th>
-     <%end%>
+    <%if current_user %>
+      <th>Edit</th>
+      <th>Delete</th>
+      <th>Visited</th>
+    <%end%>
     <th></th>
   </tr>
 
@@ -24,23 +25,24 @@
     <tr>
     <td><%= link_to restaurant.name, restaurant_url(restaurant.id) %></td>
     <td><%= restaurant.address %></td>
-    <td><%=  Neighborhood.find_by(id: restaurant.neighborhood_id).name %></td>
+    <%neighborhood= Neighborhood.find_by(id: restaurant.neighborhood_id)%>
+    <td><%= link_to neighborhood.name, neighborhood_url(neighborhood.id) %></td>
     <%counter = 0 %>
     <%if current_user%>
     <td><%= link_to "Edit", "/restaurants/#{restaurant.id}/edit" %></td>
     <td><%= link_to "Delete", "/restaurants/#{restaurant.id}", :method => 'delete' %></td>
       <%current_user.restaurants.each do |favorite| %>
-      <% if restaurant == favorite %>
+      <%if restaurant == favorite %>
         <td><input type ="checkbox" name="visit" checked value = "Visited" disabled = true %></td>
         <td><%= link_to "Undo vist", "/visits/delete/#{restaurant.id}", :method => 'delete' %></td>
         <%counter = counter +1%>
         <%break%>
       <%end%>
-       <%end%>
+      <%end%>
       <%if counter == 0%>
         <td><input type ="checkbox" name="visit" value = "Visited" disabled = true %></td>
         <td><%= link_to "Add to visted", "/visits/new/#{restaurant.id}", :method => 'post'  %></td>
       <%end%>
+    <%end%>
   <%end%>
-<%end%>
  </table>

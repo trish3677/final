@@ -16,12 +16,6 @@ User
   password: string
   password_digest: string
 
-Review
-  restaurant_id
-  user_id
-  submitted_review: text
-  rating: integer
-
 Genre
   restaurant_id: integer
   cuisine_id: integer

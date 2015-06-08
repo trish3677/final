@@ -13,11 +13,13 @@ Rails.application.routes.draw do
   post '/visits/new/:id' => 'visits#new'
   delete '/visits/delete/:id' => 'visits#destroy'
 
+  post 'restaurants/addreview' => 'restaurants#addreview'
 
   resources :restaurants
   resources :neighborhoods
   resources :cuisines
   resources :users
+
 
 
 

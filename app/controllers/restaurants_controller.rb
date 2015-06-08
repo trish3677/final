@@ -7,18 +7,16 @@
 
   def show
      @restaurant = Restaurant.find_by(id: params["id"])
-     @reviews= Review.where(restaurant_id: params["id"])
 
      if @restaurant == nil
        redirect_to restaurants_url, notice: "Restaurant not found."
      end
      
-       cookies["restaurant_id"] = Restaurant.find_by(id: params["id"]).id
-
+      cookies["restaurant_id"] = Restaurant.find_by(id: params["id"]).id
   end
 
   def new
-    
+     @neighborhoods = Neighborhood.order('name')
   end
 
   def create
@@ -73,4 +71,6 @@
     restaurant.delete
     redirect_to restaurants_url
   end
+
+
 end

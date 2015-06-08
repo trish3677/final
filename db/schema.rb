@@ -39,16 +39,6 @@ ActiveRecord::Schema.define(version: 0) do
 
   add_index "restaurants", ["neighborhood_id"], name: "index_restaurants_on_neighborhood_id"
 
-  create_table "reviews", force: :cascade do |t|
-    t.integer "restaurant_id"
-    t.integer "user_id"
-    t.text    "submitted_review"
-    t.integer "rating"
-  end
-
-  add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
-
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"

@@ -1,9 +1,8 @@
 Neighborhood.delete_all
 Cuisine.delete_all
 Restaurant.delete_all
-Review.delete_all
-Genre.delete_all
 User.delete_all
+Genre.delete_all
 Visit.delete_all
 
 
@@ -25,16 +24,9 @@ Restaurant.create(name: "RoseAngelis", address: '1314 W Wrightwood Ave, Chicago,
 Restaurant.create(name: "Mia Francesca", address: '3311 N Clark St, Chicago, IL 60657', neighborhood_id: Neighborhood.find_by(name:"Lakeview").id)
 Restaurant.create(name: "Cafe El Tapatio", address: '3400 N Ashland Ave, Chicago, IL 60657', neighborhood_id: Neighborhood.find_by(name:"Lakeview").id)
 
-Review.create(restaurant_id: Restaurant.find_by(name:"Sheffields").id, submitted_review: "Good bbq", rating: 4)
-Review.create(restaurant_id: Restaurant.find_by(name:"Sheffields").id, submitted_review: "Crowded but good beer selection", rating: 4)
-Review.create(restaurant_id: Restaurant.find_by(name:"Cheesie's").id, submitted_review: "Bring kids during the day", rating: 3)
-Review.create(restaurant_id: Restaurant.find_by(name:"Cheesie's").id, submitted_review: "Greasy fast food", rating: 2)
-Review.create(restaurant_id: Restaurant.find_by(name:"Lucky's Sandwich Company").id, submitted_review: "Unique and very good", rating: 5)
-Review.create(restaurant_id: Restaurant.find_by(name:"Lucky's Sandwich Company").id, submitted_review: "Amazing sandwich", rating: 5)
-Review.create(restaurant_id: Restaurant.find_by(name:"RoseAngelis").id, submitted_review: "Try to get a table outside", rating: 3)
-Review.create(restaurant_id: Restaurant.find_by(name:"Mia Francesca").id, submitted_review: "Order the green bean salad appetizer", rating: 5)
-Review.create(restaurant_id: Restaurant.find_by(name:"Mia Francesca").id, submitted_review: "Good spot for before or after a Cubs game", rating: 4)
-Review.create(restaurant_id: Restaurant.find_by(name:"Cafe El Tapatio").id, submitted_review: "Good value", rating: 3)
+User.create(email: 'jeff@example.com', password: 'hockey')
+User.create(email: 'pgleason@example.com', password: '1111')
+User.create(email: 'dgleason@example.com', password: '2222')
 
 Genre.create(restaurant_id: Restaurant.find_by(name:"Sheffields").id, cuisine_id: Cuisine.find_by(name:"American").id)
 Genre.create(restaurant_id: Restaurant.find_by(name:"Cheesie's").id, cuisine_id: Cuisine.find_by(name:"American").id)
@@ -44,12 +36,10 @@ Genre.create(restaurant_id: Restaurant.find_by(name:"RoseAngelis").id, cuisine_i
 Genre.create(restaurant_id: Restaurant.find_by(name:"Mia Francesca").id, cuisine_id: Cuisine.find_by(name:"Italian").id)
 Genre.create(restaurant_id: Restaurant.find_by(name:"Cafe El Tapatio").id, cuisine_id: Cuisine.find_by(name:"Mexican").id)
 
-User.create(email: 'jeff@example.com', password: 'hockey')
-User.create(email: 'pgleason@example.com', password: '1111')
-User.create(email: 'dgleason@example.com', password: '2222')
-
 Visit.create(user_id: User.find_by(email: 'jeff@example.com').id, restaurant_id: Restaurant.find_by(name:"Sheffields").id)
 Visit.create(user_id: User.find_by(email: 'dgleason@example.com').id, restaurant_id: Restaurant.find_by(name:"Sheffields").id)
 Visit.create(user_id: User.find_by(email: 'jeff@example.com').id, restaurant_id: Restaurant.find_by(name:"Mia Francesca").id)
-
+Visit.create(user_id: User.find_by(email: 'dgleason@example.com').id, restaurant_id: Restaurant.find_by(name:"Mia Francesca").id)
+Visit.create(user_id: User.find_by(email: 'pgleason@example.com').id, restaurant_id: Restaurant.find_by(name:"RoseAngelis").id)
+Visit.create(user_id: User.find_by(email: 'pgleason@example.com').id, restaurant_id: Restaurant.find_by(name:"Cafe El Tapatio").id)
 puts "Seeded succesfully."
