@@ -1,8 +1,11 @@
-Restaurant.delete_all
-Cuisine.delete_all
 Neighborhood.delete_all
-User.delete_all
+Cuisine.delete_all
+Restaurant.delete_all
 Review.delete_all
+Genre.delete_all
+User.delete_all
+Visit.delete_all
+
 
 Neighborhood.create(name: "Lakeview", description: "Lakeview has a wide array of trendy taverns, mid-range restaurants and hip shops. All of Lakeview has lots of great shopping and dining options – you can find a wide variety of foods and shops for just about anyone. ")
 Neighborhood.create(name: "Lincoln Park", description: "In Lincoln Park, Chicago's motto urbs in horto—or City in a Garden—truly comes to life. Armitage Avenue is lined with independent boutiques and high-end retailers; Clark Street is packed with casual cafes, ethnic restaurants and sweet shops that spill out onto the sidewalks during warm weather; and Lincoln Avenue buzzes all night with bars and taverns that cater to the young college crowd from the nearby DePaul University campus.")
