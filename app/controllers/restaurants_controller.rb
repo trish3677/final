@@ -2,7 +2,7 @@
  class RestaurantsController < ApplicationController
 
   def index
-      @restaurants = Restaurant.order('name asc').limit(20)
+      @restaurants = Restaurant.order('name asc').page(params[:page]).per(3)
   end
 
   def show

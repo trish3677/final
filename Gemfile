@@ -51,4 +51,6 @@ end
 
  gem 'bcrypt'
 
+gem 'kaminari'
+
 gem 'rails_12factor'

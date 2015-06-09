@@ -4,6 +4,8 @@
     <%= link_to restaurant.name, restaurant_url(restaurant.id) %><br>
 <% end %>
 
+<%= paginate @restaurants %>
+
 <% if current_user %>
  <br><p><%= link_to "Add a New Restaurant", "/restaurants/new" %></p>
  <%end%>
