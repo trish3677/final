@@ -12,7 +12,7 @@
 
   <div class="container">
 
-    <h1> Chicago ListShare 
+    <h1> Local Restaurant List 
 
       <small><%= link_to "Restaurants", '/restaurants' %></small>
       <small><%= link_to "Neighborhoods", '/neighborhoods' %></small>
@@ -22,7 +22,7 @@
       <div class="pull-right">
       <% if session["user_id"].present? %>
         <small><%= User.find_by(id: session["user_id"]).email %></small>
-        <small><%= link_to "My Account", user_path(User.find_by(id: session["user_id"])) %></small>
+        <small><%= link_to "My List", user_path(User.find_by(id: session["user_id"])) %></small>
         <small><%= link_to "Sign Out", '/logout', method: "delete" %></small>
       <% else %>
         <small><%= link_to "Sign Up", '/signup' %></small>
